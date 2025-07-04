@@ -11,4 +11,10 @@ public class TestSpringCalculator {
         StringCalculator calculator = new StringCalculator();
         assertEquals(0, calculator.add(""));
     }
+
+    @Test
+    public void ReturnNumberForSingleNumber(){
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(1, calculator.add("1"));
+    }
 }
