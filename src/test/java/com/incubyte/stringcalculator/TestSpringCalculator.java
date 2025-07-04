@@ -23,4 +23,10 @@ public class TestSpringCalculator {
         StringCalculator calculator = new StringCalculator();
         assertEquals(6, calculator.add("1,5"));
     }
+
+    @Test
+    public void HandleNewlinesBetweenNumbers(){
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(6, calculator.add("1\n2,3"));
+    }
 }
