@@ -7,17 +7,21 @@ public class StringCalculator {
             return 0;
         }
 
-        if(numbers.contains(",") || numbers.contains("\n")){
-
-            String normalizedNumbers = numbers.replace("\n", ",");
-            String[] apart = normalizedNumbers.split(",");
-            int sum=0;
-            for(String part : apart){
-                sum += Integer.parseInt(part);
-            }
-            return sum;
+        if (numbers.startsWith("//")) {
+            String delimiter = numbers.substring(2, numbers.indexOf("\n"));
+            numbers = numbers.substring(numbers.indexOf("\n") + 1);
+            numbers = numbers.replace(delimiter, ",");
         }
 
-        return Integer.parseInt(numbers);
+        String normalizedNumbers = numbers.replace("\n", ",");
+        String[] apart = normalizedNumbers.split(",");
+
+        int sum = 0;
+        for (String part : apart) {
+            if (!part.isEmpty()) {
+                sum += Integer.parseInt(part);
+            }
+        }
+        return sum;
     }
 }
